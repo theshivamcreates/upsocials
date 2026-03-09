@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply font-mono text-gray-800 antialiased;
+    /* Subtle grid background: 50px cell size */
+    background-image: 
+      linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: center top;
+    background-color: #fff;
+  }
+}

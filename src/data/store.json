@@ -1,0 +1,46 @@
+{
+  "projects": [
+    {
+      "name": "Anmol's personal brand",
+      "tag": "anmol",
+      "id": "1773049512361"
+    },
+    {
+      "name": "Galeeech",
+      "tag": "galeeech",
+      "id": "1773053046485"
+    }
+  ],
+  "media": [
+    {
+      "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/HORIZONTAL.mp4?updatedAt=1773070991577",
+      "type": "video",
+      "tag": "anmol",
+      "id": "1773071122603"
+    },
+    {
+      "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/FINAL%20REEL.mp4?updatedAt=1773070993315",
+      "type": "video",
+      "tag": "anmol",
+      "id": "1773071137396"
+    },
+    {
+      "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/Horizontal.mp4?updatedAt=1773071003550",
+      "type": "video",
+      "tag": "anmol",
+      "id": "1773071150062"
+    },
+    {
+      "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/6th%20march%20-%20reel.mp4?updatedAt=1773071011404",
+      "type": "video",
+      "tag": "anmol",
+      "id": "1773071162046"
+    },
+    {
+      "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/GALEEECH.mp4",
+      "type": "video",
+      "tag": "galeeech",
+      "id": "1773071220112"
+    }
+  ]
+}
