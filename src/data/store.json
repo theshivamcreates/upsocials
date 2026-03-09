@@ -9,6 +9,28 @@
       "name": "Galeeech",
       "tag": "galeeech",
       "id": "1773053046485"
+    },
+    {
+      "name": "Ze Cafe",
+      "tag": "zecafe",
+      "id": "1773078723532"
+    }
+  ],
+  "niches": [
+    {
+      "name": "Cafe",
+      "tag": "cafe",
+      "id": "1773078739699"
+    },
+    {
+      "name": "Personal Brand",
+      "tag": "personal-brand",
+      "id": "1773070000001"
+    },
+    {
+      "name": "Music Videos",
+      "tag": "musicvideos",
+      "id": "1773076557268"
     }
   ],
   "media": [
@@ -16,31 +38,57 @@
       "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/HORIZONTAL.mp4?updatedAt=1773070991577",
       "type": "video",
       "tag": "anmol",
+      "niche": "personal-brand",
       "id": "1773071122603"
     },
     {
       "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/FINAL%20REEL.mp4?updatedAt=1773070993315",
       "type": "video",
       "tag": "anmol",
+      "niche": "personal-brand",
       "id": "1773071137396"
     },
     {
       "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/Horizontal.mp4?updatedAt=1773071003550",
       "type": "video",
       "tag": "anmol",
+      "niche": "personal-brand",
       "id": "1773071150062"
     },
     {
       "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/6th%20march%20-%20reel.mp4?updatedAt=1773071011404",
       "type": "video",
       "tag": "anmol",
+      "niche": "personal-brand",
       "id": "1773071162046"
     },
     {
       "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/GALEEECH.mp4",
       "type": "video",
       "tag": "galeeech",
+      "niche": "musicvideos",
       "id": "1773071220112"
+    },
+    {
+      "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/Ze%20cafe/Speedramp%20(1).mp4?updatedAt=1773078488576",
+      "type": "video",
+      "tag": "zecafe",
+      "niche": "cafe",
+      "id": "1773078750866"
+    },
+    {
+      "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/Ze%20cafe/lv_0_20260225022456.mp4?updatedAt=1773078485322",
+      "type": "video",
+      "tag": "zecafe",
+      "niche": "cafe",
+      "id": "1773078767766"
+    },
+    {
+      "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/Ze%20cafe/WhatsApp%20Video%202026-02-27%20at%203.16.00%20AM.mp4?updatedAt=1773078480251",
+      "type": "video",
+      "tag": "zecafe",
+      "niche": "cafe",
+      "id": "1773078824550"
     }
   ]
 }

@@ -12,6 +12,7 @@ import Contact from "./pages/Contact"
 import Refer from "./pages/Refer"
 import Admin from "./pages/Admin"
 import Project from "./pages/Project"
+import Niche from "./pages/Niche"
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -24,6 +25,7 @@ function AnimatedRoutes() {
         <Route path="/refer" element={<PageTransition><Refer /></PageTransition>} />
         <Route path="/admin" element={<PageTransition><Admin /></PageTransition>} />
         <Route path="/project/:tag" element={<PageTransition><Project /></PageTransition>} />
+        <Route path="/niche/:tag" element={<PageTransition><Niche /></PageTransition>} />
       </Routes>
     </AnimatePresence>
   )

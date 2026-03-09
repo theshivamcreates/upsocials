@@ -7,7 +7,52 @@ export default function Admin() {
 
   // Form states for adding new
   const [newProject, setNewProject] = useState({ name: "", tag: "" });
-  const [newMedia, setNewMedia] = useState({ url: "", type: "image", tag: "" });
+  const [newNiche, setNewNiche] = useState({ name: "", tag: "" });
+  const [newMedia, setNewMedia] = useState({ url: "", type: "image", tag: "", niche: "" });
+
+  const [editingMediaId, setEditingMediaId] = useState(null);
+  const [editingMediaData, setEditingMediaData] = useState({ tag: "", niche: "" });
+
+  const [selectedProjects, setSelectedProjects] = useState(new Set());
+  const [selectedNiches, setSelectedNiches] = useState(new Set());
+  const [selectedMedia, setSelectedMedia] = useState(new Set());
+
+  const toggleSelection = (setFn, id) => {
+    setFn(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(id)) newSet.delete(id);
+      else newSet.add(id);
+      return newSet;
+    });
+  };
+
+  const deleteSelected = (type) => {
+    let newData = { ...data };
+    if (type === 'projects') {
+      if (!confirm(`Delete ${selectedProjects.size} projects?`)) return;
+      newData.projects = data.projects.filter(p => !selectedProjects.has(p.id));
+      setSelectedProjects(new Set());
+    } else if (type === 'niches') {
+      if (!confirm(`Delete ${selectedNiches.size} niches?`)) return;
+      newData.niches = (data.niches || []).filter(n => !selectedNiches.has(n.id));
+      setSelectedNiches(new Set());
+    } else if (type === 'media') {
+      if (!confirm(`Delete ${selectedMedia.size} media files?`)) return;
+      newData.media = data.media.filter(m => !selectedMedia.has(m.id));
+      setSelectedMedia(new Set());
+    }
+    handleSave(newData);
+  };
+
+  const moveNiche = (index, direction) => {
+    const nichesList = [...(data.niches || [])];
+    if (direction === -1 && index === 0) return;
+    if (direction === 1 && index === nichesList.length - 1) return;
+    const temp = nichesList[index];
+    nichesList[index] = nichesList[index + direction];
+    nichesList[index + direction] = temp;
+    handleSave({ ...data, niches: nichesList });
+  };
 
   const handleSave = async (newData) => {
     setLoading(true);
@@ -26,14 +71,30 @@ export default function Admin() {
     handleSave({ ...data, projects: data.projects.filter(p => p.id !== id) });
   };
 
+  const addNiche = () => {
+    if (!newNiche.name || !newNiche.tag) return alert("Fill niche details");
+    const nicheObj = { ...newNiche, id: Date.now().toString() };
+    handleSave({ ...data, niches: [...(data.niches || []), nicheObj] });
+  };
+
+  const removeNiche = (id) => {
+    handleSave({ ...data, niches: (data.niches || []).filter(n => n.id !== id) });
+  };
+
   const addMedia = () => {
-    if (!newMedia.url || !newMedia.tag) return alert("Fill media details");
+    if (!newMedia.url || !newMedia.tag || !newMedia.niche) return alert("Fill all media details");
     const item = { ...newMedia, id: Date.now().toString() };
     handleSave({ ...data, media: [...data.media, item] });
   };
 
   const removeMedia = (id) => {
     handleSave({ ...data, media: data.media.filter(m => m.id !== id) });
+  };
+
+  const saveMediaEdit = (id) => {
+    const updatedMedia = data.media.map(m => m.id === id ? { ...m, tag: editingMediaData.tag, niche: editingMediaData.niche } : m);
+    handleSave({ ...data, media: updatedMedia });
+    setEditingMediaId(null);
   };
 
   if (loading) return <div className="p-8">Saving to system files... Reloading...</div>;
@@ -47,7 +108,14 @@ export default function Admin() {
 
       {/* PROJECTS SECTION */}
       <section className="mb-12">
-        <h2 className="text-lg font-bold mb-4 bg-gray-100 uppercase p-2">Projects</h2>
+        <div className="flex justify-between items-center mb-4 bg-gray-100 p-2">
+          <h2 className="text-lg font-bold uppercase">Projects</h2>
+          {selectedProjects.size > 0 && (
+            <button onClick={() => deleteSelected('projects')} className="bg-red-500 text-white px-3 py-1 text-xs cursor-pointer hover:bg-red-600">
+              DELETE SELECTED ({selectedProjects.size})
+            </button>
+          )}
+        </div>
         <div className="flex gap-2 mb-6 text-xs">
           <input
             type="text"
@@ -71,9 +139,17 @@ export default function Admin() {
         <ul className="space-y-2">
           {data.projects.map(p => (
             <li key={p.id} className="flex justify-between items-center border p-2 bg-gray-50">
-              <span><strong>{p.name}</strong>
-                <span className="text-gray-400 ml-2">[{p.tag}]</span>
-              </span>
+              <div className="flex items-center space-x-3">
+                <input 
+                  type="checkbox" 
+                  checked={selectedProjects.has(p.id)} 
+                  onChange={() => toggleSelection(setSelectedProjects, p.id)} 
+                  className="cursor-pointer w-4 h-4"
+                />
+                <span><strong>{p.name}</strong>
+                  <span className="text-gray-400 ml-2">[{p.tag}]</span>
+                </span>
+              </div>
               <button
                 onClick={() => removeProject(p.id)}
                 className="text-red-500 hover:text-red-700 underline text-xs cursor-pointer"
@@ -86,9 +162,78 @@ export default function Admin() {
         </ul>
       </section>
 
+      {/* NICHES SECTION */}
+      <section className="mb-12">
+        <div className="flex justify-between items-center mb-4 bg-gray-100 p-2">
+          <h2 className="text-lg font-bold uppercase">Niches (Homepage Rows)</h2>
+          {selectedNiches.size > 0 && (
+            <button onClick={() => deleteSelected('niches')} className="bg-red-500 text-white px-3 py-1 text-xs cursor-pointer hover:bg-red-600">
+              DELETE SELECTED ({selectedNiches.size})
+            </button>
+          )}
+        </div>
+        <div className="flex gap-2 mb-6 text-xs">
+          <input
+            type="text"
+            placeholder="Niche Name (e.g. Fashion)"
+            value={newNiche.name}
+            onChange={e => setNewNiche({ ...newNiche, name: e.target.value })}
+            className="border p-2 w-64 outline-none"
+          />
+          <input
+            type="text"
+            placeholder="Unique Tag (e.g. fashion)"
+            value={newNiche.tag}
+            onChange={e => setNewNiche({ ...newNiche, tag: e.target.value.toLowerCase().replace(/\s+/g, '-') })}
+            className="border p-2 w-48 outline-none"
+          />
+          <button onClick={addNiche} className="bg-black text-white px-4 cursor-pointer hover:bg-gray-800">
+            ADD NICHE
+          </button>
+        </div>
+
+        <ul className="space-y-2">
+          {(data.niches || []).map((n, index) => (
+            <li key={n.id} className="flex justify-between items-center border p-2 bg-gray-50">
+              <div className="flex items-center space-x-3">
+                <input 
+                  type="checkbox" 
+                  checked={selectedNiches.has(n.id)} 
+                  onChange={() => toggleSelection(setSelectedNiches, n.id)} 
+                  className="cursor-pointer w-4 h-4"
+                />
+                <span><strong>{n.name}</strong>
+                  <span className="text-gray-400 ml-2">[{n.tag}]</span>
+                </span>
+              </div>
+              <div className="flex items-center space-x-4">
+                <div className="flex flex-col space-y-1">
+                  <button onClick={() => moveNiche(index, -1)} disabled={index === 0} className={`text-[10px] border px-1 font-bold ${index === 0 ? 'opacity-30' : 'hover:bg-gray-200 bg-white'} cursor-pointer leading-none py-1`}>▲</button>
+                  <button onClick={() => moveNiche(index, 1)} disabled={index === (data.niches || []).length - 1} className={`text-[10px] border px-1 font-bold ${index === (data.niches || []).length - 1 ? 'opacity-30' : 'hover:bg-gray-200 bg-white'} cursor-pointer leading-none py-1`}>▼</button>
+                </div>
+                <button
+                  onClick={() => removeNiche(n.id)}
+                  className="text-red-500 hover:text-red-700 underline text-xs cursor-pointer"
+                >
+                  Remove
+                </button>
+              </div>
+            </li>
+          ))}
+          {(!data.niches || data.niches.length === 0) && <span className="text-gray-400">No niches exist.</span>}
+        </ul>
+      </section>
+
       {/* MEDIA SECTION */}
       <section className="mb-12">
-        <h2 className="text-lg font-bold mb-4 bg-gray-100 uppercase p-2">Media Files</h2>
+        <div className="flex justify-between items-center mb-4 bg-gray-100 p-2">
+          <h2 className="text-lg font-bold uppercase">Media Files</h2>
+          {selectedMedia.size > 0 && (
+            <button onClick={() => deleteSelected('media')} className="bg-red-500 text-white px-3 py-1 text-xs cursor-pointer hover:bg-red-600">
+              DELETE SELECTED ({selectedMedia.size})
+            </button>
+          )}
+        </div>
         <div className="flex gap-2 mb-6 text-xs flex-wrap">
           <input
             type="text"
@@ -108,10 +253,18 @@ export default function Admin() {
           <select
             value={newMedia.tag}
             onChange={e => setNewMedia({ ...newMedia, tag: e.target.value })}
-            className="border p-2 outline-none"
+            className="border p-2 outline-none w-32"
           >
-            <option value="" disabled>Select Project Tag</option>
+            <option value="" disabled>Project Tag</option>
             {data.projects.map(p => <option key={p.id} value={p.tag}>{p.tag}</option>)}
+          </select>
+          <select
+            value={newMedia.niche}
+            onChange={e => setNewMedia({ ...newMedia, niche: e.target.value })}
+            className="border p-2 outline-none w-32"
+          >
+            <option value="" disabled>Niche Tag</option>
+            {(data.niches || []).map(n => <option key={n.id} value={n.tag}>{n.tag}</option>)}
           </select>
           <button onClick={addMedia} className="bg-black text-white px-4 cursor-pointer hover:bg-gray-800 h-10">
             ADD MEDIA
@@ -122,18 +275,54 @@ export default function Admin() {
           {data.media.map(m => (
             <li key={m.id} className="flex justify-between items-center border-b p-2">
               <div className="flex items-center space-x-4 max-w-[80%]">
-                <span className={`px-2 py-1 text-[10px] uppercase font-bold \${m.type === 'video' ? 'bg-blue-100 text-blue-700' : 'bg-gray-200 text-gray-700'}`}>
+                <input 
+                  type="checkbox" 
+                  checked={selectedMedia.has(m.id)} 
+                  onChange={() => toggleSelection(setSelectedMedia, m.id)} 
+                  className="cursor-pointer w-4 h-4 flex-shrink-0"
+                />
+                <span className={`px-2 py-1 text-[10px] uppercase font-bold flex-shrink-0 ${m.type === 'video' ? 'bg-blue-100 text-blue-700' : 'bg-gray-200 text-gray-700'}`}>
                   {m.type}
                 </span>
-                <span className="truncate">{m.url}</span>
-                <span className="text-gray-400 min-w-max border px-1">Tag: {m.tag}</span>
+                <span className="truncate max-w-[300px] overflow-hidden whitespace-nowrap" title={m.url}>{m.url}</span>
+                
+                {editingMediaId === m.id ? (
+                  <div className="flex space-x-2 text-xs">
+                    <select
+                      value={editingMediaData.tag}
+                      onChange={e => setEditingMediaData({ ...editingMediaData, tag: e.target.value })}
+                      className="border p-1 outline-none"
+                    >
+                      {data.projects.map(p => <option key={p.id} value={p.tag}>{p.tag}</option>)}
+                    </select>
+                    <select
+                      value={editingMediaData.niche}
+                      onChange={e => setEditingMediaData({ ...editingMediaData, niche: e.target.value })}
+                      className="border p-1 outline-none"
+                    >
+                      {(data.niches || []).map(n => <option key={n.id} value={n.tag}>{n.tag}</option>)}
+                    </select>
+                  </div>
+                ) : (
+                  <div className="flex space-x-2 text-xs text-gray-500">
+                    <span className="border px-1 bg-white">Tag: {m.tag}</span>
+                    <span className="border px-1 bg-white">Niche: {m.niche || 'unassigned'}</span>
+                  </div>
+                )}
               </div>
-              <button
-                onClick={() => removeMedia(m.id)}
-                className="text-red-500 hover:text-red-700 underline text-xs cursor-pointer"
-              >
-                Remove
-              </button>
+              <div className="flex space-x-3">
+                {editingMediaId === m.id ? (
+                  <button onClick={() => saveMediaEdit(m.id)} className="text-green-600 hover:text-green-800 underline text-xs cursor-pointer font-bold">Save</button>
+                ) : (
+                  <button onClick={() => { setEditingMediaId(m.id); setEditingMediaData({ tag: m.tag, niche: m.niche || '' }); }} className="text-blue-500 hover:text-blue-700 underline text-xs cursor-pointer">Edit</button>
+                )}
+                <button
+                  onClick={() => removeMedia(m.id)}
+                  className="text-red-500 hover:text-red-700 underline text-xs cursor-pointer"
+                >
+                  Remove
+                </button>
+              </div>
             </li>
           ))}
           {data.media.length === 0 && <span className="text-gray-400">No media exists.</span>}
