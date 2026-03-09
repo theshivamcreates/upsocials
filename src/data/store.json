@@ -63,13 +63,6 @@
       "id": "1773071162046"
     },
     {
-      "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/GALEEECH.mp4",
-      "type": "video",
-      "tag": "galeeech",
-      "niche": "musicvideos",
-      "id": "1773071220112"
-    },
-    {
       "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/Ze%20cafe/Speedramp%20(1).mp4?updatedAt=1773078488576",
       "type": "video",
       "tag": "zecafe",
@@ -89,6 +82,13 @@
       "tag": "zecafe",
       "niche": "cafe",
       "id": "1773078824550"
+    },
+    {
+      "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/GALEEECH%20-%20FINAL%20RENDER.mp4?updatedAt=1773083514589",
+      "type": "video",
+      "tag": "galeeech",
+      "niche": "musicvideos",
+      "id": "1773083571081"
     }
   ]
 }
