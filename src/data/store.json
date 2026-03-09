@@ -35,34 +35,6 @@
   ],
   "media": [
     {
-      "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/HORIZONTAL.mp4?updatedAt=1773070991577",
-      "type": "video",
-      "tag": "anmol",
-      "niche": "personal-brand",
-      "id": "1773071122603"
-    },
-    {
-      "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/FINAL%20REEL.mp4?updatedAt=1773070993315",
-      "type": "video",
-      "tag": "anmol",
-      "niche": "personal-brand",
-      "id": "1773071137396"
-    },
-    {
-      "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/Horizontal.mp4?updatedAt=1773071003550",
-      "type": "video",
-      "tag": "anmol",
-      "niche": "personal-brand",
-      "id": "1773071150062"
-    },
-    {
-      "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/6th%20march%20-%20reel.mp4?updatedAt=1773071011404",
-      "type": "video",
-      "tag": "anmol",
-      "niche": "personal-brand",
-      "id": "1773071162046"
-    },
-    {
       "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/Ze%20cafe/Speedramp%20(1).mp4?updatedAt=1773078488576",
       "type": "video",
       "tag": "zecafe",
@@ -89,6 +61,34 @@
       "tag": "galeeech",
       "niche": "musicvideos",
       "id": "1773083571081"
+    },
+    {
+      "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/REEL.mp4",
+      "type": "video",
+      "tag": "anmol",
+      "niche": "personal-brand",
+      "id": "1773084121015"
+    },
+    {
+      "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/REEL%20-%2010th%20march.mp4",
+      "type": "video",
+      "tag": "anmol",
+      "niche": "personal-brand",
+      "id": "1773084136530"
+    },
+    {
+      "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/6th%20march%20-%20reel.mp4?updatedAt=1773071011404",
+      "type": "video",
+      "tag": "anmol",
+      "niche": "personal-brand",
+      "id": "1773084152848"
+    },
+    {
+      "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/FINAL%20REEL.mp4?updatedAt=1773070993315",
+      "type": "video",
+      "tag": "anmol",
+      "niche": "personal-brand",
+      "id": "1773084165981"
     }
   ]
 }
