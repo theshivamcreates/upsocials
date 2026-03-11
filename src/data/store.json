@@ -124,5 +124,39 @@
       "niche": "cafe",
       "id": "1773223099529"
     }
+  ],
+  "team": [
+    {
+      "name": "Anmol",
+      "work": "Social Media Manager",
+      "experience": "",
+      "photo": "/Anmol.jpeg",
+      "badge": "Founder",
+      "id": "1773265635151"
+    },
+    {
+      "name": "Amogh",
+      "work": "Client Manager",
+      "experience": "",
+      "photo": "/Amogh.jpeg",
+      "badge": "Co-Founder",
+      "id": "1773265420070"
+    },
+    {
+      "name": "Shivam",
+      "work": "Head editor",
+      "experience": "",
+      "photo": "/Shivam.png",
+      "badge": "Co-Founder",
+      "id": "1773266249778"
+    },
+    {
+      "name": "Deepansh",
+      "work": "Cinematographer",
+      "experience": "",
+      "photo": "/Deepansh.jpeg",
+      "badge": "",
+      "id": "1773265537287"
+    }
   ]
 }

@@ -9,13 +9,18 @@ export default function Admin() {
   const [newProject, setNewProject] = useState({ name: "", tag: "" });
   const [newNiche, setNewNiche] = useState({ name: "", tag: "" });
   const [newMedia, setNewMedia] = useState({ url: "", type: "image", tag: "", niche: "" });
+  const [newTeamMember, setNewTeamMember] = useState({ name: "", work: "", experience: "", photo: "", badge: "" });
 
   const [editingMediaId, setEditingMediaId] = useState(null);
   const [editingMediaData, setEditingMediaData] = useState({ tag: "", niche: "" });
 
+  const [editingTeamId, setEditingTeamId] = useState(null);
+  const [editingTeamData, setEditingTeamData] = useState({ name: "", work: "", experience: "", photo: "", badge: "" });
+
   const [selectedProjects, setSelectedProjects] = useState(new Set());
   const [selectedNiches, setSelectedNiches] = useState(new Set());
   const [selectedMedia, setSelectedMedia] = useState(new Set());
+  const [selectedTeam, setSelectedTeam] = useState(new Set());
 
   const toggleSelection = (setFn, id) => {
     setFn(prev => {
@@ -40,6 +45,10 @@ export default function Admin() {
       if (!confirm(`Delete ${selectedMedia.size} media files?`)) return;
       newData.media = data.media.filter(m => !selectedMedia.has(m.id));
       setSelectedMedia(new Set());
+    } else if (type === 'team') {
+      if (!confirm(`Delete ${selectedTeam.size} team members?`)) return;
+      newData.team = (data.team || []).filter(t => !selectedTeam.has(t.id));
+      setSelectedTeam(new Set());
     }
     handleSave(newData);
   };
@@ -52,6 +61,16 @@ export default function Admin() {
     nichesList[index] = nichesList[index + direction];
     nichesList[index + direction] = temp;
     handleSave({ ...data, niches: nichesList });
+  };
+
+  const moveTeam = (index, direction) => {
+    const teamList = [...(data.team || [])];
+    if (direction === -1 && index === 0) return;
+    if (direction === 1 && index === teamList.length - 1) return;
+    const temp = teamList[index];
+    teamList[index] = teamList[index + direction];
+    teamList[index + direction] = temp;
+    handleSave({ ...data, team: teamList });
   };
 
   const handleSave = async (newData) => {
@@ -95,6 +114,24 @@ export default function Admin() {
     const updatedMedia = data.media.map(m => m.id === id ? { ...m, tag: editingMediaData.tag, niche: editingMediaData.niche } : m);
     handleSave({ ...data, media: updatedMedia });
     setEditingMediaId(null);
+  };
+
+  const addTeamMember = () => {
+    if (!newTeamMember.name || !newTeamMember.work) return alert("Name and work role are required");
+    const member = { ...newTeamMember, id: Date.now().toString() };
+    handleSave({ ...data, team: [...(data.team || []), member] });
+            setNewTeamMember({ name: "", work: "", experience: "", photo: "", badge: "" });
+  };
+
+  const saveTeamEdit = (id) => {
+    if (!editingTeamData.name || !editingTeamData.work) return alert("Name and work role are required");
+    const updatedTeam = (data.team || []).map(t => t.id === id ? { ...t, ...editingTeamData } : t);
+    handleSave({ ...data, team: updatedTeam });
+    setEditingTeamId(null);
+  };
+
+  const removeTeamMember = (id) => {
+    handleSave({ ...data, team: (data.team || []).filter(t => t.id !== id) });
   };
 
   if (loading) return <div className="p-8">Saving to system files... Reloading...</div>;
@@ -326,6 +363,157 @@ export default function Admin() {
             </li>
           ))}
           {data.media.length === 0 && <span className="text-gray-400">No media exists.</span>}
+        </ul>
+      </section>
+
+      {/* TEAM SECTION */}
+      <section className="mb-12">
+        <div className="flex justify-between items-center mb-4 bg-gray-100 p-2">
+          <h2 className="text-lg font-bold uppercase">Team Members</h2>
+          {selectedTeam.size > 0 && (
+            <button onClick={() => deleteSelected('team')} className="bg-red-500 text-white px-3 py-1 text-xs cursor-pointer hover:bg-red-600">
+              DELETE SELECTED ({selectedTeam.size})
+            </button>
+          )}
+        </div>
+        <div className="flex flex-col gap-2 mb-6 text-xs bg-gray-50 p-4 border">
+          <div className="flex gap-2">
+            <input
+              type="text"
+              placeholder="Name *"
+              value={newTeamMember.name}
+              onChange={e => setNewTeamMember({ ...newTeamMember, name: e.target.value })}
+              className="border p-2 w-1/4 outline-none"
+            />
+            <input
+              type="text"
+              placeholder="Work/Role *"
+              value={newTeamMember.work}
+              onChange={e => setNewTeamMember({ ...newTeamMember, work: e.target.value })}
+              className="border p-2 w-1/4 outline-none"
+            />
+            <input
+              type="text"
+              placeholder="Badge (e.g. Founder)"
+              value={newTeamMember.badge}
+              onChange={e => setNewTeamMember({ ...newTeamMember, badge: e.target.value })}
+              className="border p-2 w-1/4 outline-none"
+            />
+            <input
+              type="text"
+              placeholder="Photo URL"
+              value={newTeamMember.photo}
+              onChange={e => setNewTeamMember({ ...newTeamMember, photo: e.target.value })}
+              className="border p-2 w-1/4 outline-none"
+            />
+          </div>
+          <div className="flex gap-2">
+            <input
+              type="text"
+              placeholder="Experience (optional short description)"
+              value={newTeamMember.experience}
+              onChange={e => setNewTeamMember({ ...newTeamMember, experience: e.target.value })}
+              className="border p-2 flex-grow outline-none"
+            />
+            <button onClick={addTeamMember} className="bg-black text-white px-6 cursor-pointer hover:bg-gray-800">
+              ADD MEMBER
+            </button>
+          </div>
+        </div>
+
+        <ul className="space-y-2">
+          {(data.team || []).map((member, index) => (
+            <li key={member.id} className="flex justify-between items-center border p-3 flex-wrap sm:flex-nowrap gap-4">
+              <div className="flex items-center space-x-4 max-w-full">
+                <input 
+                  type="checkbox" 
+                  checked={selectedTeam.has(member.id)} 
+                  onChange={() => toggleSelection(setSelectedTeam, member.id)} 
+                  className="cursor-pointer w-4 h-4 flex-shrink-0"
+                />
+                
+                {member.photo && (
+                  <img src={member.photo} alt={member.name} className="w-10 h-10 object-cover rounded flex-shrink-0 bg-gray-100" />
+                )}
+                
+                {editingTeamId === member.id ? (
+                  <div className="flex flex-col gap-2 w-full min-w-[250px]">
+                    <div className="flex gap-2">
+                      <input 
+                        type="text" 
+                        value={editingTeamData.name} 
+                        onChange={e => setEditingTeamData({ ...editingTeamData, name: e.target.value })} 
+                        className="border p-1 text-xs outline-none flex-1" 
+                        placeholder="Name" 
+                      />
+                      <input 
+                        type="text" 
+                        value={editingTeamData.work} 
+                        onChange={e => setEditingTeamData({ ...editingTeamData, work: e.target.value })} 
+                        className="border p-1 text-xs outline-none flex-1" 
+                        placeholder="Work" 
+                      />
+                      <input 
+                        type="text" 
+                        value={editingTeamData.badge} 
+                        onChange={e => setEditingTeamData({ ...editingTeamData, badge: e.target.value })} 
+                        className="border p-1 text-xs outline-none w-28" 
+                        placeholder="Badge" 
+                      />
+                    </div>
+                    <div className="flex gap-2">
+                      <input 
+                        type="text" 
+                        value={editingTeamData.photo} 
+                        onChange={e => setEditingTeamData({ ...editingTeamData, photo: e.target.value })} 
+                        className="border p-1 text-xs outline-none flex-1" 
+                        placeholder="Photo URL" 
+                      />
+                      <input 
+                        type="text" 
+                        value={editingTeamData.experience} 
+                        onChange={e => setEditingTeamData({ ...editingTeamData, experience: e.target.value })} 
+                        className="border p-1 text-xs outline-none flex-1" 
+                        placeholder="Experience" 
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <div className="flex flex-col min-w-0">
+                    <span className="font-bold truncate">{member.name} <span className="text-gray-400 font-normal text-xs ml-2 uppercase tracking-widest">{member.work}</span></span>
+                    <span className="text-xs text-gray-500 truncate" title={member.experience}>{member.experience}</span>
+                  </div>
+                )}
+              </div>
+              <div className="flex items-center space-x-3 flex-shrink-0">
+                {/* Reorder up/down arrows */}
+                <div className="flex flex-col space-y-1">
+                  <button
+                    onClick={() => moveTeam(index, -1)}
+                    disabled={index === 0}
+                    className={`text-[10px] border px-1 font-bold ${index === 0 ? 'opacity-30' : 'hover:bg-gray-200 bg-white'} cursor-pointer leading-none py-1`}
+                  >▲</button>
+                  <button
+                    onClick={() => moveTeam(index, 1)}
+                    disabled={index === (data.team || []).length - 1}
+                    className={`text-[10px] border px-1 font-bold ${index === (data.team || []).length - 1 ? 'opacity-30' : 'hover:bg-gray-200 bg-white'} cursor-pointer leading-none py-1`}
+                  >▼</button>
+                </div>
+                {editingTeamId === member.id ? (
+                  <button onClick={() => saveTeamEdit(member.id)} className="text-green-600 hover:text-green-800 underline text-xs cursor-pointer font-bold">Save</button>
+                ) : (
+                  <button onClick={() => { setEditingTeamId(member.id); setEditingTeamData({ name: member.name, work: member.work, experience: member.experience, photo: member.photo || '', badge: member.badge || '' }); }} className="text-blue-500 hover:text-blue-700 underline text-xs cursor-pointer">Edit</button>
+                )}
+                <button
+                  onClick={() => removeTeamMember(member.id)}
+                  className="text-red-500 hover:text-red-700 underline text-xs cursor-pointer"
+                >
+                  Remove
+                </button>
+              </div>
+            </li>
+          ))}
+          {(!data.team || data.team.length === 0) && <span className="text-gray-400">No team members added.</span>}
         </ul>
       </section>
     </div>

@@ -11,6 +11,7 @@ import About from "./pages/About"
 import Pricing from "./pages/Pricing"
 import Contact from "./pages/Contact"
 import Refer from "./pages/Refer"
+import Team from "./pages/Team"
 import Admin from "./pages/Admin"
 import Project from "./pages/Project"
 import Niche from "./pages/Niche"
@@ -25,6 +26,7 @@ function AnimatedRoutes() {
         <Route path="/pricing" element={<PageTransition><Pricing /></PageTransition>} />
         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
         <Route path="/refer" element={<PageTransition><Refer /></PageTransition>} />
+        <Route path="/team" element={<PageTransition><Team /></PageTransition>} />
         <Route path="/admin" element={<PageTransition><Admin /></PageTransition>} />
         <Route path="/project/:tag" element={<PageTransition><Project /></PageTransition>} />
         <Route path="/niche/:tag" element={<PageTransition><Niche /></PageTransition>} />
