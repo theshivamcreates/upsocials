@@ -55,27 +55,6 @@
   ],
   "media": [
     {
-      "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/Ze%20cafe/Speedramp%20(1).mp4?updatedAt=1773078488576",
-      "type": "video",
-      "tag": "zecafe",
-      "niche": "cafe",
-      "id": "1773078750866"
-    },
-    {
-      "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/Ze%20cafe/lv_0_20260225022456.mp4?updatedAt=1773078485322",
-      "type": "video",
-      "tag": "zecafe",
-      "niche": "cafe",
-      "id": "1773078767766"
-    },
-    {
-      "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/Ze%20cafe/WhatsApp%20Video%202026-02-27%20at%203.16.00%20AM.mp4?updatedAt=1773078480251",
-      "type": "video",
-      "tag": "zecafe",
-      "niche": "cafe",
-      "id": "1773078824550"
-    },
-    {
       "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/GALEEECH%20-%20FINAL%20RENDER.mp4?updatedAt=1773083514589",
       "type": "video",
       "tag": "galeeech",
@@ -123,6 +102,27 @@
       "tag": "glaam",
       "niche": "salon",
       "id": "1773222518838"
+    },
+    {
+      "url": "https://res.cloudinary.com/dutbctat4/video/upload/v1773079276/lv_0_20260225022456_n5mntj.mp4",
+      "type": "video",
+      "tag": "zecafe",
+      "niche": "cafe",
+      "id": "1773222861354"
+    },
+    {
+      "url": "https://res.cloudinary.com/dutbctat4/video/upload/v1773079284/WhatsApp_Video_2026-02-27_at_3.16.00_AM_p9fhz9.mp4",
+      "type": "video",
+      "tag": "zecafe",
+      "niche": "cafe",
+      "id": "1773223077595"
+    },
+    {
+      "url": "https://res.cloudinary.com/dutbctat4/video/upload/v1773079318/Speedramp_1_qerj3t.mp4",
+      "type": "video",
+      "tag": "zecafe",
+      "niche": "cafe",
+      "id": "1773223099529"
     }
   ]
 }
