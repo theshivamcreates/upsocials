@@ -38,6 +38,9 @@ export default function Sidebar() {
           <Link to="/about" className={`hover:text-gray-900 transition-colors shrink-0 ${location.pathname === '/about' ? 'text-gray-900 font-bold' : ''}`}>
             About
           </Link>
+          <Link to="/pricing" className={`hover:text-gray-900 transition-colors shrink-0 ${location.pathname === '/pricing' ? 'text-gray-900 font-bold' : ''}`}>
+            Pricing
+          </Link>
           <Link to="/contact" className={`hover:text-gray-900 transition-colors shrink-0 ${location.pathname === '/contact' ? 'text-gray-900 font-bold' : ''}`}>
             Contact
           </Link>

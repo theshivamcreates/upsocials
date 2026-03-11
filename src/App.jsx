@@ -8,6 +8,7 @@ import PageTransition from "./components/PageTransition"
 
 import Home from "./pages/Home"
 import About from "./pages/About"
+import Pricing from "./pages/Pricing"
 import Contact from "./pages/Contact"
 import Refer from "./pages/Refer"
 import Admin from "./pages/Admin"
@@ -21,6 +22,7 @@ function AnimatedRoutes() {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<PageTransition><Home /></PageTransition>} />
         <Route path="/about" element={<PageTransition><About /></PageTransition>} />
+        <Route path="/pricing" element={<PageTransition><Pricing /></PageTransition>} />
         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
         <Route path="/refer" element={<PageTransition><Refer /></PageTransition>} />
         <Route path="/admin" element={<PageTransition><Admin /></PageTransition>} />
