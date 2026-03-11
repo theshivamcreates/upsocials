@@ -14,6 +14,16 @@
       "name": "Ze Cafe",
       "tag": "zecafe",
       "id": "1773078723532"
+    },
+    {
+      "name": "Ramjas Rai",
+      "tag": "ramjas",
+      "id": "1773222425689"
+    },
+    {
+      "name": "Forever Glaam",
+      "tag": "glaam",
+      "id": "1773222493738"
     }
   ],
   "niches": [
@@ -26,6 +36,16 @@
       "name": "Personal Brand",
       "tag": "personal-brand",
       "id": "1773070000001"
+    },
+    {
+      "name": "Clothing",
+      "tag": "clothing",
+      "id": "1773222443555"
+    },
+    {
+      "name": "Salon",
+      "tag": "salon",
+      "id": "1773222505355"
     },
     {
       "name": "Music Videos",
@@ -89,6 +109,20 @@
       "tag": "anmol",
       "niche": "personal-brand",
       "id": "1773084165981"
+    },
+    {
+      "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/SOCIAL%20ERA/RAMJAS%20EDIT%20-%2011%20march.mp4",
+      "type": "video",
+      "tag": "ramjas",
+      "niche": "clothing",
+      "id": "1773222458688"
+    },
+    {
+      "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/SOCIAL%20ERA/FINAL%20-%20HAIR%20TREATMENT.mp4",
+      "type": "video",
+      "tag": "glaam",
+      "niche": "salon",
+      "id": "1773222518838"
     }
   ]
 }
