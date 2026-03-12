@@ -127,7 +127,7 @@
   ],
   "team": [
     {
-      "name": "Anmol",
+      "name": "Anmol Modanwal",
       "work": "Social Media Manager",
       "experience": "",
       "photo": "/Anmol.png",
@@ -135,7 +135,7 @@
       "id": "1773265635151"
     },
     {
-      "name": "Amogh",
+      "name": "Amogh Agarwal",
       "work": "Client Manager",
       "experience": "",
       "photo": "/Amogh.jpeg",
@@ -143,7 +143,7 @@
       "id": "1773265420070"
     },
     {
-      "name": "Shivam",
+      "name": "Shivam Kumar Verma",
       "work": "Head editor",
       "experience": "",
       "photo": "/Shivam.png",
@@ -151,12 +151,20 @@
       "id": "1773266249778"
     },
     {
-      "name": "Deepansh",
+      "name": "Deepansh Srivastav",
       "work": "Cinematographer",
       "experience": "",
       "photo": "/Deepansh.jpeg",
       "badge": "",
       "id": "1773265537287"
+    },
+    {
+      "name": "Abhinav Agrahari",
+      "work": "Editor",
+      "experience": "",
+      "photo": "/Abhinav.jpeg",
+      "badge": "",
+      "id": "1773310112185"
     }
   ]
 }
