@@ -42,7 +42,7 @@ export default function MediaRow({ niche, items, onLoaded }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <MediaItem item={item} onLoaded={onLoaded} />
+              <MediaItem item={item} onLoaded={index === 0 ? onLoaded : undefined} />
             </motion.div>
           );
         })}

@@ -24,6 +24,11 @@
       "name": "Forever Glaam",
       "tag": "glaam",
       "id": "1773222493738"
+    },
+    {
+      "name": "Lala Ji Vastra Vibhag",
+      "tag": "lalaji",
+      "id": "1773477240185"
     }
   ],
   "niches": [
@@ -55,74 +60,88 @@
   ],
   "media": [
     {
-      "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/GALEEECH%20-%20FINAL%20RENDER.mp4?updatedAt=1773083514589",
-      "type": "video",
-      "tag": "galeeech",
-      "niche": "musicvideos",
-      "id": "1773083571081"
-    },
-    {
-      "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/REEL.mp4",
+      "url": "https://res.cloudinary.com/dutbctat4/video/upload/v1773476450/REEL_-_13th_MARCH_alsa8x.mp4",
       "type": "video",
       "tag": "anmol",
       "niche": "personal-brand",
-      "id": "1773084121015"
+      "id": "1773476916853"
     },
     {
-      "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/REEL%20-%2010th%20march.mp4",
+      "url": "https://res.cloudinary.com/dutbctat4/video/upload/v1773476447/REEL_7th_MARCH_lgurkz.mp4",
       "type": "video",
       "tag": "anmol",
       "niche": "personal-brand",
-      "id": "1773084136530"
+      "id": "1773476965886"
     },
     {
-      "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/6th%20march%20-%20reel.mp4?updatedAt=1773071011404",
+      "url": "https://res.cloudinary.com/dutbctat4/video/upload/v1773476446/FINAL_9th_MARCH_ti95op.mp4",
       "type": "video",
       "tag": "anmol",
       "niche": "personal-brand",
-      "id": "1773084152848"
+      "id": "1773476979503"
     },
     {
-      "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/FINAL%20REEL.mp4?updatedAt=1773070993315",
+      "url": "https://res.cloudinary.com/dutbctat4/video/upload/v1773476444/FINAL_-_5th_march_cyt5c6.mp4",
       "type": "video",
       "tag": "anmol",
       "niche": "personal-brand",
-      "id": "1773084165981"
+      "id": "1773476993886"
     },
     {
-      "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/SOCIAL%20ERA/RAMJAS%20EDIT%20-%2011%20march.mp4",
+      "url": "https://res.cloudinary.com/dutbctat4/video/upload/v1773476443/REEL_-_10th_march_zfogft.mp4",
       "type": "video",
-      "tag": "ramjas",
-      "niche": "clothing",
-      "id": "1773222458688"
+      "tag": "anmol",
+      "niche": "personal-brand",
+      "id": "1773477006953"
     },
     {
-      "url": "https://ik.imagekit.io/upsocials/UPSOCIALS/SOCIAL%20ERA/FINAL%20-%20HAIR%20TREATMENT.mp4",
+      "url": "https://res.cloudinary.com/dutbctat4/video/upload/v1773476430/6th_march_-_reel_gziq8k.mp4",
+      "type": "video",
+      "tag": "anmol",
+      "niche": "personal-brand",
+      "id": "1773477019003"
+    },
+    {
+      "url": "https://res.cloudinary.com/dutbctat4/video/upload/v1773476539/FINAL_-_HAIR_TREATMENT_b00dzq.mp4",
       "type": "video",
       "tag": "glaam",
       "niche": "salon",
-      "id": "1773222518838"
+      "id": "1773477102635"
     },
     {
-      "url": "https://res.cloudinary.com/dutbctat4/video/upload/v1773079276/lv_0_20260225022456_n5mntj.mp4",
+      "url": "https://res.cloudinary.com/dutbctat4/video/upload/v1773476823/lv_0_20260225022456_ge0qbg.mp4",
       "type": "video",
       "tag": "zecafe",
       "niche": "cafe",
-      "id": "1773222861354"
+      "id": "1773477131653"
     },
     {
-      "url": "https://res.cloudinary.com/dutbctat4/video/upload/v1773079284/WhatsApp_Video_2026-02-27_at_3.16.00_AM_p9fhz9.mp4",
+      "url": "https://res.cloudinary.com/dutbctat4/video/upload/v1773476821/WhatsApp_Video_2026-02-27_at_3.16.00_AM_yuzagw.mp4",
       "type": "video",
       "tag": "zecafe",
       "niche": "cafe",
-      "id": "1773223077595"
+      "id": "1773477177103"
     },
     {
-      "url": "https://res.cloudinary.com/dutbctat4/video/upload/v1773079318/Speedramp_1_qerj3t.mp4",
+      "url": "https://res.cloudinary.com/dutbctat4/video/upload/v1773476774/LALAJI_efuarw.mp4",
+      "type": "video",
+      "tag": "lalaji",
+      "niche": "clothing",
+      "id": "1773477252669"
+    },
+    {
+      "url": "https://res.cloudinary.com/dutbctat4/video/upload/v1773476598/GALEEECH_-_FINAL_RENDER_snoljh.mp4",
+      "type": "video",
+      "tag": "galeeech",
+      "niche": "musicvideos",
+      "id": "1773478220219"
+    },
+    {
+      "url": "https://res.cloudinary.com/dutbctat4/video/upload/v1773476828/Speedramp_1_rhrdgp.mp4",
       "type": "video",
       "tag": "zecafe",
       "niche": "cafe",
-      "id": "1773223099529"
+      "id": "1773478321353"
     }
   ],
   "team": [
@@ -159,12 +178,12 @@
       "id": "1773265537287"
     },
     {
-      "name": "Abhinav Agrahari",
-      "work": "Editor",
+      "name": "Sumit",
+      "work": "Creative Director",
       "experience": "",
-      "photo": "/Abhinav.jpeg",
+      "photo": "/Sumit.jpeg",
       "badge": "",
-      "id": "1773310112185"
+      "id": "1773512985015"
     }
   ]
 }

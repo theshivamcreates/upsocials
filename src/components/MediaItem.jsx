@@ -63,6 +63,10 @@ export default function MediaItem({ item, onLoaded }) {
               onCanPlay={() => setIsGridBuffering(false)}
               onPlaying={() => setIsGridBuffering(false)}
               onWaiting={() => setIsGridBuffering(true)}
+              onError={() => {
+                setIsGridBuffering(false);
+                if (onLoaded) onLoaded(); // treat error as "done" so spinner doesn't hang
+              }}
               className="w-full h-auto object-contain transition-opacity duration-300 group-hover:opacity-90"
               onEnded={() => setIsPlaying(false)}
             />
@@ -92,6 +96,9 @@ export default function MediaItem({ item, onLoaded }) {
             onClick={() => setIsExpanded(true)}
             onLoad={() => {
               if (onLoaded) onLoaded();
+            }}
+            onError={() => {
+              if (onLoaded) onLoaded(); // treat error as "done" so spinner doesn't hang
             }}
           />
         )}

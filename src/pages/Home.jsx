@@ -30,7 +30,10 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [data]);
 
-  const totalMedia = nicheSets.reduce((sum, set) => sum + set.items.length, 0);
+  // Only count the first item of each niche (index 0 = always visible on all screen sizes).
+  // Hidden items (index 1-3) may never fire onLoadedData on smaller screens,
+  // which would cause the spinner to get permanently stuck.
+  const totalMedia = nicheSets.length; // one per niche (the always-visible item)
   const allLoaded = totalMedia > 0 ? loadedCount >= totalMedia : true;
 
   const handleItemLoaded = () => {
