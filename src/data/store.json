@@ -24,6 +24,11 @@
       "name": "Lala Ji Vastra Vibhag",
       "tag": "lalaji",
       "id": "1773477240185"
+    },
+    {
+      "name": "DS Fashion",
+      "tag": "ds",
+      "id": "1773782086742"
     }
   ],
   "niches": [
@@ -137,6 +142,41 @@
       "tag": "zecafe",
       "niche": "cafe",
       "id": "1773478321353"
+    },
+    {
+      "url": "https://res.cloudinary.com/dutbctat4/video/upload/v1773781937/WEB_DS_1st_twudcs.mp4",
+      "type": "video",
+      "tag": "ds",
+      "niche": "clothing",
+      "id": "1773782108727"
+    },
+    {
+      "url": "https://res.cloudinary.com/dutbctat4/video/upload/v1773781846/MEME_2nd_hulqsu.mp4",
+      "type": "video",
+      "tag": "ds",
+      "niche": "clothing",
+      "id": "1773782123911"
+    },
+    {
+      "url": "https://res.cloudinary.com/dutbctat4/video/upload/v1773781859/WEB_CINEMATIC_SAREE_3rd_nrzdlx.mp4",
+      "type": "video",
+      "tag": "ds",
+      "niche": "clothing",
+      "id": "1773782140459"
+    },
+    {
+      "url": "https://res.cloudinary.com/dutbctat4/video/upload/v1773781866/WOMAN_NEEDS_4th_evg8tk.mp4",
+      "type": "video",
+      "tag": "ds",
+      "niche": "clothing",
+      "id": "1773782181743"
+    },
+    {
+      "url": "https://res.cloudinary.com/dutbctat4/video/upload/v1773781862/Fastpaced_5th_jt8c4c.mp4",
+      "type": "video",
+      "tag": "ds",
+      "niche": "clothing",
+      "id": "1773782196110"
     }
   ],
   "team": [
