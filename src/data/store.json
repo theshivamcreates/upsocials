@@ -29,9 +29,19 @@
       "name": "DS Fashion",
       "tag": "ds",
       "id": "1773782086742"
+    },
+    {
+      "name": "Kake Di Hatti",
+      "tag": "kake",
+      "id": "1774005161929"
     }
   ],
   "niches": [
+    {
+      "name": "Concept Reel",
+      "tag": "concept",
+      "id": "1774005148345"
+    },
     {
       "name": "Cafe",
       "tag": "cafe",
@@ -177,6 +187,20 @@
       "tag": "ds",
       "niche": "clothing",
       "id": "1773782196110"
+    },
+    {
+      "url": "https://res.cloudinary.com/dutbctat4/video/upload/v1774005085/FINAL_-_Kakedihatti_rpmnf3.mp4",
+      "type": "video",
+      "tag": "kake",
+      "niche": "concept",
+      "id": "1774005207845"
+    },
+    {
+      "url": "https://res.cloudinary.com/dutbctat4/video/upload/v1774005127/1st_cinematic_c1wxu4.mp4",
+      "type": "video",
+      "tag": "kake",
+      "niche": "cafe",
+      "id": "1774005222311"
     }
   ],
   "team": [
@@ -219,6 +243,14 @@
       "photo": "/Sumit.jpeg",
       "badge": "",
       "id": "1773512985015"
+    },
+    {
+      "name": "Sara Mumtaz",
+      "work": "Graphic Designer",
+      "experience": "",
+      "photo": "/Sara.png",
+      "badge": "",
+      "id": "1774005486960"
     }
   ]
 }
