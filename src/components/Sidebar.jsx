@@ -41,9 +41,9 @@ export default function Sidebar() {
           <Link to="/team" className={`hover:text-gray-900 transition-colors shrink-0 ${location.pathname === '/team' ? 'text-gray-900 font-bold' : ''}`}>
             Our Team
           </Link>
-          <Link to="/pricing" className={`hover:text-gray-900 transition-colors shrink-0 ${location.pathname === '/pricing' ? 'text-gray-900 font-bold' : ''}`}>
+          {/* <Link to="/pricing" className={`hover:text-gray-900 transition-colors shrink-0 ${location.pathname === '/pricing' ? 'text-gray-900 font-bold' : ''}`}>
             Pricing
-          </Link>
+          </Link> */}
           <Link to="/contact" className={`hover:text-gray-900 transition-colors shrink-0 ${location.pathname === '/contact' ? 'text-gray-900 font-bold' : ''}`}>
             Contact
           </Link>
