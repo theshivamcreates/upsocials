@@ -213,20 +213,20 @@
       "id": "1773265635151"
     },
     {
-      "name": "Sumit",
-      "work": "Creative Director",
-      "experience": "",
-      "photo": "/Sumit.jpeg",
-      "badge": "Co-founder",
-      "id": "1773512985015"
-    },
-    {
       "name": "Shivam Kumar Verma",
       "work": "Head editor",
       "experience": "",
       "photo": "/Shivam.png",
       "badge": "Co-Founder",
       "id": "1773266249778"
+    },
+    {
+      "name": "Sumit",
+      "work": "Creative Director",
+      "experience": "",
+      "photo": "/Sumit.jpeg",
+      "badge": "",
+      "id": "1773512985015"
     },
     {
       "name": "Deepansh Srivastav",
