@@ -221,12 +221,36 @@
       "id": "1773266249778"
     },
     {
+      "name": "Tripti Singh",
+      "work": "Manager",
+      "experience": "",
+      "photo": "/tripti.jpeg",
+      "badge": "Co-founder",
+      "id": "1776977549368"
+    },
+    {
       "name": "Deepansh Srivastav",
       "work": "Cinematographer",
       "experience": "",
       "photo": "/Deepansh.jpeg",
       "badge": "",
       "id": "1773265537287"
+    },
+    {
+      "name": "Rajveer Sahani",
+      "work": "Cinematographer/Video Editor",
+      "experience": "",
+      "photo": "/rajveer.jpeg",
+      "badge": "",
+      "id": "1776977044786"
+    },
+    {
+      "name": "Rishu",
+      "work": "Creative Director",
+      "experience": "",
+      "photo": "/rishu.jpeg",
+      "badge": "",
+      "id": "1776977731385"
     }
   ]
 }
